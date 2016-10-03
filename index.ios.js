@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducer from './app/reducers';
+import AppContainer from './app/containers/AppContainer'
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ }); // Only log in development
 
@@ -27,43 +28,43 @@ import {
     View
 } from 'react-native';
 
-class PaperChase extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to Paperchase!</Text>
-                <Text style={styles.instructions}>To get started, edit index.ios.js</Text>
-                <Text style={styles.instructions}>Press Cmd+R to reload,{'\n'}Cmd+D or shake for dev menu</Text>
-            </View>
-        )
-    }
-}
+// class PaperChase extends Component {
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <Text style={styles.welcome}>Welcome to Paperchase!</Text>
+//                 <Text style={styles.instructions}>To get started, edit index.ios.js</Text>
+//                 <Text style={styles.instructions}>Press Cmd+R to reload,{'\n'}Cmd+D or shake for dev menu</Text>
+//             </View>
+//         )
+//     }
+// }
 
 const App = () => {
     return (
         <Provider store={store}>
-            <PaperChase />
+            <AppContainer />
         </Provider>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         backgroundColor: '#F5FCFF',
+//     },
+//     welcome: {
+//         fontSize: 20,
+//         textAlign: 'center',
+//         margin: 10,
+//     },
+//     instructions: {
+//         textAlign: 'center',
+//         color: '#333333',
+//         marginBottom: 5,
+//     },
+// });
 
 AppRegistry.registerComponent('PaperChase', () => App);
