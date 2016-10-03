@@ -5,21 +5,23 @@ import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
 
 import StatusBarSpacer from '../components/StatusBarSpacer'
+import Home from './Home';
 
 class AppContainer extends Component {
-    addRecipe() {
-        this.props.addRecipe();
-    }
+    // addRecipe() {
+    //     this.props.addRecipe();
+    // }
 
     render() {
         return (
             <View>
                 <StatusBarSpacer />
-                <Text>This is the AppContainer component</Text>
+                <Home {...this.props} />
+                {/*<Text>This is the AppContainer component</Text>
                 <Text>Recipe count: {this.props.recipeCount}</Text>
                 <TouchableHighlight onPress={() => {this.addRecipe()}}>
                     <Text>Increment Recipes</Text>
-                </TouchableHighlight>
+                </TouchableHighlight>*/}
             </View>
         )
     }
@@ -31,6 +33,6 @@ function mapDispatchToProps(dispatch) {
 
 export default connect((state) => {
     return {
-        recipeCount: state.recipeCount
+        /*recipeCount: state.recipeCount*/
     }
 }, mapDispatchToProps)(AppContainer);
