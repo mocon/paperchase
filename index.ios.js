@@ -1,10 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
+import reducer from './app/reducers';
+
+const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ }); // Only log in development
+
+function configureStore(initialState) {
+    const enhancer = compose(
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    );
+
+    return createStore(reducer, initialState, enhancer);
+}
+
+const store = configureStore({});
+
 import {
     AppRegistry,
     StyleSheet,
@@ -20,8 +35,16 @@ class PaperChase extends Component {
                 <Text style={styles.instructions}>To get started, edit index.ios.js</Text>
                 <Text style={styles.instructions}>Press Cmd+R to reload,{'\n'}Cmd+D or shake for dev menu</Text>
             </View>
-        );
+        )
     }
+}
+
+const App = () => {
+    return (
+        <Provider store={store}>
+            <PaperChase />
+        </Provider>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -43,4 +66,4 @@ const styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('PaperChase', () => PaperChase);
+AppRegistry.registerComponent('PaperChase', () => App);
