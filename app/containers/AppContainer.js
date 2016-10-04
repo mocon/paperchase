@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, StatusBar, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
@@ -14,8 +14,7 @@ class AppContainer extends Component {
 
     render() {
         return (
-            <View>
-                <StatusBarSpacer />
+            <View style={styles.container}>
                 <Home {...this.props} />
                 {/*<Text>This is the AppContainer component</Text>
                 <Text>Recipe count: {this.props.recipeCount}</Text>
@@ -26,6 +25,12 @@ class AppContainer extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+});
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
