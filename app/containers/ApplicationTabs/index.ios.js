@@ -22,7 +22,11 @@ class ApplicationTabs extends Component {
 
     render() {
         return (
-            <TabBarIOS style={styles.scene}>
+            <TabBarIOS
+                style={styles.scene}
+                unselectedTintColor="#bbb"
+                tintColor="#00c4b4"
+                barTintColor="#fafafa">
                 <Icon.TabBarItem
                     title="Take Photo"
                     onPress={ () => {return this.onPress(0);} }
