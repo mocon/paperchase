@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     scrollViewArea: {
-        flex: 1
+        flex: 1,
+        marginBottom: 50
     },
     scrollViewItem: {
         paddingVertical: 5,

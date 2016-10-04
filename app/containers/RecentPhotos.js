@@ -154,7 +154,7 @@ class RecentPhotos extends Component {
                         </View>
                     </TouchableHighlight>
                 </View>
-                <ScrollView style={styles.scrollViewArea}>
+                <ScrollView style={styles.scrollViewArea} automaticallyAdjustContentInsets={false}>
                     { this.sampleData().map((person, index) => {
                         return (
                             <View key={index} style={styles.scrollViewItem}>
