@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
     },
     topToolBar: {
         flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: colorPalette.primary.base
     },
     topToolBarTitle: {
@@ -18,14 +20,20 @@ const styles = StyleSheet.create({
         paddingBottom: 15
     },
     topToolBarButton: {
-        width: 80,
-        paddingTop: 29,
-        paddingHorizontal: 10,
-        paddingBottom: 10,
-        color: 'white'
+        width: 100,
+        marginTop: 10,
+        paddingVertical: 15,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     topToolBarButtonRight: {
-        textAlign: 'right'
+        justifyContent: 'flex-end',
+        flex: 1
+    },
+    topToolBarIcon: {
+        height: 30,
+        marginTop: -13,
+        paddingTop: 10
     },
     scrollViewArea: {
         flex: 1,
@@ -47,6 +55,9 @@ const styles = StyleSheet.create({
     },
     footerText: {
         textAlign: 'center',
+        color: 'white'
+    },
+    textColorWhite: {
         color: 'white'
     }
 });

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, TextInput, Image, TouchableHighlight, StyleSheet, StatusBar, Text } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import StatusBarSpacer from '../components/StatusBarSpacer';
 import styles from '../lib/styleSheet';
@@ -141,11 +142,17 @@ class Home extends Component {
                 <StatusBar barStyle="light-content" />
                 <View style={styles.topToolBar}>
                     <TouchableHighlight onPress={ () => this.searchPressed()}>
-                        <Text style={styles.topToolBarButton}>Back</Text>
+                        <View style={styles.topToolBarButton}>
+                            <Icon style={styles.topToolBarIcon} name="keyboard-arrow-left" size={24} color="white" />
+                            <Text style={styles.textColorWhite}>Back</Text>
+                        </View>
                     </TouchableHighlight>
                     <Text style={styles.topToolBarTitle}>All Users</Text>
                     <TouchableHighlight onPress={ () => this.searchPressed()}>
-                        <Text style={[styles.topToolBarButton, styles.topToolBarButtonRight]}>Forward</Text>
+                        <View style={[styles.topToolBarButton, styles.topToolBarButtonRight]}>
+                            <Text style={styles.textColorWhite}>Forward</Text>
+                            <Icon style={styles.topToolBarIcon} name="keyboard-arrow-right" size={24} color="white" />
+                        </View>
                     </TouchableHighlight>
                 </View>
                 <ScrollView style={styles.scrollViewArea}>
