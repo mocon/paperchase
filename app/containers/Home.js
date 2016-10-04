@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView, View, TextInput, Image, TouchableHighlight, StyleSheet, StatusBar, Text } from 'react-native';
 import { connect } from 'react-redux';
-import colorPalette from '../lib/colorPalette';
+
+import StatusBarSpacer from '../components/StatusBarSpacer';
+import styles from '../lib/styleSheet';
 
 class Home extends Component {
     searchPressed() {
@@ -137,9 +139,13 @@ class Home extends Component {
         return (
             <View style={styles.scene}>
                 <StatusBar barStyle="light-content" />
-                <View style={styles.topNav}>
-                    <TouchableHighlight onPress={ () => this.searchPressed() }>
-                        <Text style={styles.button}>Fetch Users</Text>
+                <View style={styles.topToolBar}>
+                    <TouchableHighlight onPress={ () => this.searchPressed()}>
+                        <Text style={styles.topToolBarButton}>Back</Text>
+                    </TouchableHighlight>
+                    <Text style={styles.topToolBarTitle}>All Users</Text>
+                    <TouchableHighlight onPress={ () => this.searchPressed()}>
+                        <Text style={[styles.topToolBarButton, styles.topToolBarButtonRight]}>Forward</Text>
                     </TouchableHighlight>
                 </View>
                 <ScrollView style={styles.scrollViewArea}>
@@ -159,42 +165,6 @@ class Home extends Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    scene: {
-        flex: 1
-    },
-    button: {
-        textAlign: 'center',
-        backgroundColor: colorPalette.primary.base,
-        color: 'white',
-        fontSize: 18,
-        paddingTop: 25,
-        paddingBottom: 15
-    },
-    scrollViewArea: {
-        flex: 1,
-        paddingVertical: 5
-    },
-    scrollViewItem: {
-        paddingVertical: 5,
-        paddingHorizontal: 10
-    },
-    scrollViewTextPrimary: {
-        fontSize: 16
-    },
-    scrollViewTextSecondary: {
-        color: colorPalette.grays.base
-    },
-    footer: {
-        padding: 15,
-        backgroundColor: colorPalette.secondary.base
-    },
-    footerText: {
-        textAlign: 'center',
-        color: 'white'
-    }
-});
 
 function mapStateToProps(state) {
     return {
