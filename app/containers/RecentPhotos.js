@@ -3,10 +3,9 @@ import { ScrollView, View, TextInput, Image, TouchableHighlight, StyleSheet, Sta
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import StatusBarSpacer from '../components/StatusBarSpacer';
 import styles from '../lib/styleSheet';
 
-class Home extends Component {
+class RecentPhotos extends Component {
     searchPressed() {
         this.props.fetchRecipes('bacon, cucumber');
     }
@@ -147,9 +146,9 @@ class Home extends Component {
                             <Text style={styles.textColorWhite}>Back</Text>
                         </View>
                     </TouchableHighlight>
-                    <Text style={styles.topToolBarTitle}>All Users</Text>
-                    <TouchableHighlight onPress={ () => this.searchPressed()}>
-                        <View style={[styles.topToolBarButton, styles.topToolBarButtonRight]}>
+                    <Text style={styles.topToolBarTitle}>Recent Photos</Text>
+                    <TouchableHighlight>
+                        <View style={[styles.topToolBarButton, styles.topToolBarButtonRight, styles.invisible]}>
                             <Text style={styles.textColorWhite}>Forward</Text>
                             <Icon style={styles.topToolBarIcon} name="keyboard-arrow-right" size={24} color="white" />
                         </View>
@@ -165,9 +164,6 @@ class Home extends Component {
                         )
                     }) }
                 </ScrollView>
-                <View style={styles.footer}>
-                    <Text style={styles.footerText}>Footer</Text>
-                </View>
             </View>
         )
     }
@@ -179,4 +175,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(RecentPhotos);

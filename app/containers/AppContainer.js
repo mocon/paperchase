@@ -4,40 +4,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
 
-import StatusBarSpacer from '../components/StatusBarSpacer'
-import Home from './Home';
+import ApplicationTabs from './ApplicationTabs';
+import styles from '../lib/styleSheet';
 
 class AppContainer extends Component {
-    // addRecipe() {
-    //     this.props.addRecipe();
-    // }
-
     render() {
         return (
-            <View style={styles.container}>
-                <Home {...this.props} />
-                {/*<Text>This is the AppContainer component</Text>
-                <Text>Recipe count: {this.props.recipeCount}</Text>
-                <TouchableHighlight onPress={() => {this.addRecipe()}}>
-                    <Text>Increment Recipes</Text>
-                </TouchableHighlight>*/}
+            <View style={styles.scene}>
+                <ApplicationTabs {...this.props} />
             </View>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    }
-});
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
 
 export default connect((state) => {
-    return {
-        /*recipeCount: state.recipeCount*/
-    }
+    return {}
 }, mapDispatchToProps)(AppContainer);

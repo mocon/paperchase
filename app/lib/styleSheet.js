@@ -36,8 +36,7 @@ const styles = StyleSheet.create({
         paddingTop: 10
     },
     scrollViewArea: {
-        flex: 1,
-        paddingVertical: 5
+        flex: 1
     },
     scrollViewItem: {
         paddingVertical: 5,
@@ -59,6 +58,13 @@ const styles = StyleSheet.create({
     },
     textColorWhite: {
         color: 'white'
+    },
+    centered: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    invisible: {
+        opacity: 0
     }
 });
 
