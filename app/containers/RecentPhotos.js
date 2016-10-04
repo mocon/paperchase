@@ -6,10 +6,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from '../lib/styleSheet';
 
 class RecentPhotos extends Component {
-    searchPressed() {
-        this.props.fetchRecipes('bacon, cucumber');
-    }
-
     sampleData() {
         return [
             {
@@ -140,7 +136,7 @@ class RecentPhotos extends Component {
             <View style={styles.scene}>
                 <StatusBar barStyle="light-content" />
                 <View style={styles.topToolBar}>
-                    <TouchableHighlight onPress={ () => this.searchPressed()}>
+                    <TouchableHighlight onPress={ () => this.props.setTab(0)}>
                         <View style={styles.topToolBarButton}>
                             <Icon style={styles.topToolBarIcon} name="keyboard-arrow-left" size={24} color="white" />
                             <Text style={styles.textColorWhite}>Back</Text>
